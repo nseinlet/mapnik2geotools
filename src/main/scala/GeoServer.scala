@@ -221,7 +221,8 @@ extends Mapnik2GeoTools.Output {
     user: String,
     host: String,
     port: String,
-    database: String
+    database: String,
+    dbpass: String
   ) extends Store {
     val name = database.replaceAll("[\\s-]", "_")
     val toXML =
@@ -235,6 +236,7 @@ extends Mapnik2GeoTools.Output {
           <entry key="user">{ user }</entry>
           <entry key="host">{ host }</entry>
           <entry key="port">{ port }</entry>
+          <entry key="passwd">{ dbpass }</entry>
           <entry key="database">{ database }</entry>
           <entry key="namespace">{ namespace }</entry>
           <entry key="dbtype">postgis</entry>
@@ -321,7 +323,8 @@ extends Mapnik2GeoTools.Output {
                   settings("user"),
                   settings("host"),
                   settings("port"),
-                  settings("dbname")
+                  settings("dbname"),
+                  settings("password")
                 )
 
               val table =
